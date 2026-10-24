@@ -74,8 +74,8 @@ bun meeting-notice/scripts/make-sample.mjs 2026-10-28 7 下午13點10分
 不需要伺服器端程式：ZIP 解包與重新打包都在瀏覽器完成，檔案不會上傳。
 可放到任何靜態網站空間（Cloudflare Pages、GitHub Pages、學校空間都可以）。
 
-已發布於 Freebuff Sites（preview 環境，已公開）：
-<https://site-5408cc78093e4fcfb1a02bd09b64526b.freebuff.page>
+已發布於 GitHub（preview 環境，已公開）：
+<https://eeemil0523.github.io/meeting-notice/>
 
 更新流程：`rm -rf dist && mkdir dist` 後複製 `index.html`、`style.css`、`app.js`、`lib/`、`assets/` 進 `dist/`，
 再以 `deploy.json` 部署（Worker 只有 `deploy/index.js` 的 `env.ASSETS.fetch`）。
