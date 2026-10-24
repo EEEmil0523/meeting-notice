@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant" class="is-locked">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f0e7" />
+    <meta name="description" content="填入日期與次數，直接下載與原檔格式相同的開會通知單 .docx。" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a5c4f'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f7f3e8' font-family='Georgia,serif'%3E%E5%8D%94%3C/text%3E%3C/svg%3E" />
+    <title>開會通知單產生器｜新竹高商 綜三1</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="gate" id="gate">
+      <form class="gate__card" id="gate-form">
+        <p class="gate__eyebrow">新竹高商 · 綜三1</p>
+        <p class="gate__title">開會通知單產生器</p>
+        <p class="gate__lede">請輸入密碼後進入。</p>
+        <label class="gate__label" for="gate-password">密碼</label>
+        <input
+          id="gate-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+        <button type="submit" class="primary" data-gate-submit>進入</button>
+        <p class="gate__error" data-gate-error role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">新竹高商 · 綜三1 · 上學期</p>
+        <h1>開會通知單產生器</h1>
+        <p class="lede">
+          填入開會日期和第幾次，按下按鈕就能下載 Word 檔。<br />
+          格式直接套用你原本那份通知單，字型、行距、議程清單都不會跑掉。
+        </p>
+      </header>
+
+      <div class="workspace">
+        <form id="notice-form" class="card" autocomplete="off">
+          <div class="field field--wide">
+            <label for="date">開會日期</label>
+            <input id="date" name="date" type="date" required />
+            <p class="hint" data-hint="date" aria-live="polite"></p>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="nth">第幾次</label>
+              <input id="nth" name="nth" type="number" min="1" max="99" step="1" inputmode="numeric" required />
+            </div>
+            <div class="field">
+              <label for="time">開會時間</label>
+              <input id="time" name="time" type="text" placeholder="下午13點10分" />
+            </div>
+          </div>
+
+          <button type="submit" class="primary" data-generate>
+            <span class="primary__icon" aria-hidden="true">↓</span>
+            產生並下載 .docx
+          </button>
+
+          <p class="status" data-status role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="preview" aria-label="產出預覽">
+          <p class="preview__eyebrow">產出預覽</p>
+          <div class="paper">
+            <p class="paper__school">新竹高商 綜三1 上學期</p>
+            <p class="paper__title" data-preview="title">第7次開會通知單</p>
+            <p class="paper__line" data-preview="docno">發文字號: 新商學字第1160006號</p>
+            <p class="paper__line" data-preview="reason">開會事由: 班級自治討論第7次學生會議</p>
+            <p class="paper__line" data-preview="time">開會時間: 中華民國115年10月28日星期三 下午13點10分</p>
+            <p class="paper__line paper__line--muted">開會事由、議程、備註等其餘內容與原檔完全相同</p>
+          </div>
+          <ul class="facts">
+            <li>通知單一律以「星期三」為開會日，日期一選就自動帶入星期。</li>
+            <li>發文字號尾數＝次數 − 1（第7次為 1160006）。</li>
+            <li>標楷體、A4、行距、編號清單全部沿用原檔設定。</li>
+            <li>檔案在瀏覽器本機產生，資料不會上傳到任何伺服器。</li>
+          </ul>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <p>格式來源：綜三1 上學期 第6次開會通知單</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
